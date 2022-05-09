@@ -1,0 +1,29 @@
+.cart-container{
+
+}
+.cart-wrapper{
+padding: 20px;
+
+}
+.cart-title{
+font-weight: 300;
+text-align: center;
+}
+.cart-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+}
+.cart-bottom{
+
+}
+.cart-toptexts{
+  
+}
+.cart-toptexts .cart-toptext{
+    text-decoration: underline;
+    cursor: pointer;
+    margin: 0px 10px;
+}

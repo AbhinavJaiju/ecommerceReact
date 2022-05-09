@@ -1,0 +1,121 @@
+
+.wrapper {
+    display: flex;
+    padding: 50px;
+}
+
+.img-container {
+    flex: 1;
+}
+
+.info-container {
+    flex: 1;
+    margin-left: 20px;
+    padding: 0px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-container .product-title {
+    font-size: 28px;
+    font-weight: 200;
+
+}
+
+.product-image {
+    width: 100%;
+    height: 90vh;
+    object-fit: cover;
+}
+
+.info-container .product-desc {
+    margin: 20px 0px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-weight: 200;
+}
+
+.info-container .product-price {
+    font-weight: 100;
+    font-size: 40px;
+}
+.product-reviews p{
+    margin: 20px 0px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-weight: 200;
+    border: 2px;
+    border-color: black;
+}
+.product-specification p{
+    margin: 20px 0px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 19px;
+    letter-spacing: 0.2px;
+    word-spacing: 0.2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    font-weight: 200;
+}
+.product-reviews h3{
+    font-size: 28px;
+    font-weight: 200;
+}
+.product-specification h3{
+    font-size: 28px;
+    font-weight: 200;
+}
+.buynow{
+    padding: 15px;
+  border: 2px solid teal;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+.buynow :hover{
+    background-color: #f8f4f4;
+}
+.button-div{
+    margin-top: 10px;
+}
+.product-addcontainer{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: space-between;
+}
+.amount-container{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+.product-amount{
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid teal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 5px;
+}
