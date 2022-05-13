@@ -132,7 +132,7 @@ const EditProfile = () => {
       setNotes(response);
       console.log("%c user", "color:orange", notes);
     });
-  }, []);
+  }, [productData]);
 
  
 

@@ -1,56 +1,177 @@
 import React from "react";
 import styled from "styled-components";
 import "./Navber.css";
-import SearchIcon from "@mui/icons-material/Search";
-import IconButton from '@mui/material/IconButton';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Badge from '@mui/material/Badge';
-import { Link } from "react-router-dom";
-import Profile from "../../pages/profile/Profile1";
+import IconButton from "@mui/material/IconButton";
 import { useNavigate } from "react-router-dom";
-
+import Tooltip from "@mui/material/Tooltip";
+import Avatar from "@mui/material/Avatar";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Divider from "@mui/material/Divider";
+import PersonAdd from "@mui/icons-material/PersonAdd";
+import Settings from "@mui/icons-material/Settings";
+import Menu from "@mui/material/Menu";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Logout from '@mui/icons-material/Logout';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
-  margin-left:25px;
+  margin-left: 25px;
 `;
-
-
 const Navbar = () => {
-  const userName = sessionStorage.getItem('userName')
+  const userName = sessionStorage.getItem("userName");
   let navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
+  const Logoutt = () => {
+    sessionStorage.clear("userId");
+    sessionStorage.clear("userName");
+    sessionStorage.clear("token");
+    sessionStorage.clear("isAuthenticated");
+    sessionStorage.clear("productId");
+    navigate("/");
+  };
+  const Register = ()=>{
+    navigate("/pages/register/Register");
+  }
 
-const Logout = ()=>{
-  sessionStorage.clear('userId')
-  sessionStorage.clear('userName')
-  sessionStorage.clear('token')
-  navigate('/components/auth/Login');
-}
+  const Profile = ()=>{
+    navigate("/pages/profile/Profile1")
+  }
+  const Product = ()=>{
+    navigate("/pages/ProductList")
+  }
+  const Home = ()=>{
+    navigate("/pages/Home")
+  }
+  const WishList = ()=>{
+    navigate("/pages/cart/Cart")
+  }
 
   return (
     <div className="navbar-container">
       <div className="navbar-wrapper">
         <div className="navbar-left">
-          <div className="navbar-language"><Link to="/pages/profile/Profile1">{userName}</Link></div>
-          
+          <div className="navbar-language">
+           
+          </div>
         </div>
         <div className="navbar-center">
-          <h1 className="logo"><Link to="/pages/Home">E-commerce</Link></h1>
+          <MenuItem onClick={Home}>
+          <h1 className="logo">
+            E-commerce
+          </h1>
+          </MenuItem>
         </div>
         <div className="navbar-right">
-          <MenuItem><Link to="">{}</Link></MenuItem>
-          <MenuItem><Link to="/pages/ProductList">Products</Link></MenuItem>
-          <MenuItem><Link to="/pages/register/Register">Register</Link></MenuItem>
-          <MenuItem onClick={Logout}>Log Out</MenuItem>
-          <MenuItem>
-            <IconButton aria-label="cart">
-              <Badge badgeContent={4} color="secondary">
-                <ShoppingCartIcon />
-              </Badge>
-            </IconButton>
-          </MenuItem>
+          <React.Fragment>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                textAlign: "center",
+              }}
+            >
+              <MenuItem>
+              <Typography sx={{ minWidth: 100}} onClick={Product} className="navbar-product">Products</Typography></MenuItem>
+              <MenuItem>
+              <Typography sx={{ minWidth: 100}} onClick={WishList} className="navbar-product"><FavoriteIcon/></Typography></MenuItem>
+             
+              <Tooltip title="Account settings">
+                <IconButton
+                  onClick={handleClick}
+                  size="small"
+                  sx={{ ml: 4 }}
+                  aria-controls={open ? "account-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                >
+                  <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+                  Hi, {userName}
+                </IconButton>
+              </Tooltip>
+            </Box>
+            <Menu
+              anchorEl={anchorEl}
+              id="account-menu"
+              open={open}
+              onClose={handleClose}
+              onClick={handleClose}
+              PaperProps={{
+                elevation: 0,
+                sx: {
+                  overflow: "visible",
+                  filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                  mt: 1.5,
+                  "& .MuiAvatar-root": {
+                    width: 32,
+                    height: 32,
+                    ml: -0.5,
+                    mr: 1,
+                    mb:1,
+                  },
+                  "&:before": {
+                    content: '""',
+                    display: "block",
+                    position: "absolute",
+                    top: 0,
+                    right: 14,
+                    width: 10,
+                    height: 10,
+                    bgcolor: "background.paper",
+                    transform: "translateY(-50%) rotate(45deg)",
+                    zIndex: 0,
+                  },
+                },
+              }}
+              transformOrigin={{ horizontal: "right", vertical: "top" }}
+              anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+            >
+              <MenuItem onClick={Profile}>
+              <ListItemIcon>
+                <Avatar /> 
+              </ListItemIcon>
+              Profile
+              </MenuItem>
+              <MenuItem>
+              <ListItemIcon>
+                <Avatar />
+                </ListItemIcon>
+                My account
+              </MenuItem>
+              <Divider />
+              <MenuItem onClick={Register}>
+              
+                <ListItemIcon>
+                  <PersonAdd fontSize="small" />
+                </ListItemIcon>
+                Add another account
+          
+              </MenuItem>
+              <MenuItem>
+                <ListItemIcon>
+                  <Settings fontSize="small" />
+                </ListItemIcon>
+                Settings
+              </MenuItem>
+              <MenuItem onClick={Logoutt} >
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+              
+            </Menu>
+          </React.Fragment>
         </div>
       </div>
     </div>

@@ -7,6 +7,8 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Container = styled.div`
   padding: 20px;
@@ -75,9 +77,12 @@ const imgPath = "../../assets/images/";
 
 const url = "http://localhost/ecommerce/admin/Api/getfilteredproduct.php";
 var productData = [];
+const customerId = sessionStorage.getItem("userId");
+const auth = sessionStorage.getItem("token");
 
 const FilteredProduct = (props) => {
   const [notes, setNotes] = useState("");
+  const [value, setValue] = useState("");
   useEffect(() => {
     console.log(props.props);
     console.log({ categoryId: props.props });
@@ -98,9 +103,38 @@ const FilteredProduct = (props) => {
     console.log(typeof notes);
   }, [props]);
 
+
+
+  const AddtoWishlist = (event) => {
+    event.preventDefault();
+    var data = JSON.stringify({
+      customerId: customerId,
+      productId: parseInt(value),
+    });
+    console.log(data);
+
+    var config = {
+      method: "post",
+      url: "http://localhost/ecommerce/admin/Api/addtowishlist.php",
+      headers: {
+        Authorization: `Bearer ${auth}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    //adding product to wishlist
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data.message));
+        toast(response.data.message);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   if (notes) {
     productData = notes.data;
-    console.log(productData);
   }
 
   return (
@@ -123,7 +157,11 @@ const FilteredProduct = (props) => {
                 <SearchIcon />
               </Icon>
               <Icon>
-                <FavoriteIcon />
+                <FavoriteIcon  value={items.id}
+                    onFocus={(e) => setValue(items.id)}
+                    edge="start"
+                    tabIndex={0}
+                    onClick={AddtoWishlist}/>
               </Icon>
             </Info>
             <h3 className="product-name">{items.name}</h3>
@@ -132,6 +170,7 @@ const FilteredProduct = (props) => {
           
         ))}
       </Container>
+      <ToastContainer />
     </>
   );
 };

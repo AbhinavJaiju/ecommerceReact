@@ -1,4 +1,17 @@
-.container{
+.profile-container{
     display: flex;
     flex-direction: column;
+    background-color: #f5fafd;
+}
+.data-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+}
+.profile-userdetails{
+
+}
+.profile-sidetabs{
+margin-right: 20px;
 }

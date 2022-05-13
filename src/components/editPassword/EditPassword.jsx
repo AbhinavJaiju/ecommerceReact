@@ -1,16 +1,9 @@
 import React from "react";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import MenuItem from "@mui/material/MenuItem";
 import "./EditPassword.css";
 import axios from "axios";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
-import PasswordIcon from "@mui/icons-material/Password";
-import InputAdornment from "@mui/material/InputAdornment";
 import Button from "@mui/material/Button";
-
 import { useEffect, useState } from "react";
-
 import { useFormik } from "formik";
 import * as yup from "yup";
 
@@ -56,9 +49,7 @@ var config = {
 const EditPassword = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [notes, setNotes] = useState("");
-  const [pass, setPass] = useState("");
 
-  console.log(pass);
 
   useEffect(() => {
     axios(config).then((response) => {
@@ -72,6 +63,7 @@ const EditPassword = () => {
       password: "",
       passwords: "",
       customerId: id,
+      pass :"",
     },
     validateOnMount: true,
     validationSchema: validationSchema,
@@ -79,29 +71,21 @@ const EditPassword = () => {
     onSubmit: (values) => {
       var configpass = {
         method: "put",
-        url: "http://localhost/ecommerce/admin/Api/updatecustomer.php",
+        url: "http://localhost/ecommerce/admin/Api/editpassword.php",
         headers: {
           Authorization: `Bearer ${auth}`,
           "Content-Type": "application/json",
         },
-        data: {
-          passwords: formik.values.password,
-          customerId: id,
-        },
+        data: JSON.stringify(values, null, 4)
       };
 
       setIsSubmitting(true);
-      console.log(JSON.stringify(values, null, 1));
+      console.log(JSON.stringify(values, null, 4));
       axios(configpass)
         .then(function (response) {
           console.log(response.data);
           console.warn(response.status);
-          if (response) {
-            alert("password updated");
-          } else {
-            alert("Invalid Credentials Please try again");
-            setIsSubmitting(false);
-          }
+          alert(response.message)
         })
         .catch(function (error) {
           console.log(error);
@@ -114,15 +98,17 @@ const EditPassword = () => {
   }
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit} className="data">
       <TextField
           required
           fullWidth
-          id="outlined-required"
+          id="password"
+          name="pass"
+          type="password"
           label="Enter present password"
-          value = {pass}
-          onChange = {(event)=>{setPass(event.target.value)}}
-          helperText={pass === productData.password?"Correct":"Password not same"}
+          value={formik.values.pass}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
         <TextField
           margin="normal"

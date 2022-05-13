@@ -1,5 +1,6 @@
 import React from 'react'
 import styledComponents from 'styled-components';
+import { useNavigate } from "react-router-dom";
 
 
 const Container = styledComponents.div`
@@ -15,11 +16,14 @@ const Container = styledComponents.div`
 `
 
 const Announcement = () => {
-  const Name = sessionStorage.getItem('Name');
+  let navigate = useNavigate();
+ 
+  const Product = ()=>{
+    navigate("/pages/ProductList")
+  }
   return (
-    <Container>
-        {Name}
-        {sessionStorage.getItem('id')}
+    <Container onClick={Product}>
+        SUPER DEAL ON ELECTRONICS
     </Container>
   )
 }

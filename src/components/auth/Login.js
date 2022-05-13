@@ -76,9 +76,10 @@ export default function SignInSide() {
             sessionStorage.setItem("token", response.data.jwt);
             sessionStorage.setItem("userId", response.data.data.id);
             sessionStorage.setItem("userName", response.data.data.Name);
+            sessionStorage.setItem("isAuthenticated", "true");
             navigate("/pages/Home");
           } else {
-            alert("Invalid Credentials Please try again");
+            alert("Login credentials are invalid, please try again");
             setIsSubmitting(false);
           }
         })
@@ -144,9 +145,7 @@ export default function SignInSide() {
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
               />
-              {formik.errors.email && formik.touched.email && (
-                <div className="input-feedback">{formik.errors.email}</div>
-              )}
+              
               <TextField
                 margin="normal"
                 required
@@ -164,9 +163,7 @@ export default function SignInSide() {
                 }
                 helperText={formik.touched.passwords && formik.errors.passwords}
               />
-              {formik.errors.password && formik.touched.password && (
-                <div className="input-feedback">{formik.errors.password}</div>
-              )}
+             
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"

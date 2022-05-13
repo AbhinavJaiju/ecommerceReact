@@ -1,0 +1,29 @@
+.productImg{
+    height: 100%;
+    z-index: 2;
+    width:fit-content;
+}
+.product-name{
+    font-weight: 300;
+}
+.wishlist-container{
+display: flex;
+flex-direction: column;
+
+
+}
+.wishlist-datacontainer{
+ 
+    flex: 8;
+}
+.wishlist-image{
+   
+    max-height: 240px;
+    max-width: 300px;
+
+    flex: 2;
+}
+.wishlist-delete{
+float:right;
+flex: 1;
+}

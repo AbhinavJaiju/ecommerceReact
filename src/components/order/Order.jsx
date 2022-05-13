@@ -43,7 +43,8 @@ const Order = () => {
     console.log(productData);
   }
   return (
-    <TableContainer component={Paper} className="data">
+    <div className="data">
+    <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -72,6 +73,7 @@ const Order = () => {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   )
 }
 

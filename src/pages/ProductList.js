@@ -52,7 +52,6 @@ const url = "http://localhost/ecommerce/admin/Api/getcategory.php";
 const ProductList = (props) => {
   const [selected, setSelected] = useState(6);
   const [cat, setCat] = useState("");
-  console.log(selected);
 
   useEffect(() => {
     fetch(`${url}`)
@@ -62,14 +61,13 @@ const ProductList = (props) => {
 
   if (cat) {
     catData = cat.data;
-    console.log(catData);
   }
 
   return (
     <Container>
       <>
-        <Navbar />
         <Announcement />
+        <Navbar />
         <Title>All Products</Title>
         <FilterContainer>
           <Filter>
@@ -79,6 +77,7 @@ const ProductList = (props) => {
                 setSelected(e.target.value);
               }}
             >
+              <Option key="6" value="6"></Option>
               {catData.map((items) => (
                 <Option key={items.id} value={items.id}>
                   {items.name}
