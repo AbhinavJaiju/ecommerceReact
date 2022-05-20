@@ -12,13 +12,10 @@ import "./Order.css";
 
 
 
-const url = "http://localhost/ecommerce/admin/Api/getfilteredproduct.php";
 var productData = [];
 
 const Order = () => {
     const customerid = sessionStorage.getItem('userId')
-
-    console.log(customerid)
     const [notes, setNotes] = useState("");
   useEffect(() => {
 
@@ -34,13 +31,10 @@ const Order = () => {
       .then((response) => response.json())
       .then((data) => setNotes(data));
 
-    console.log(notes);
-    console.log(typeof notes);
   }, [customerid]);
 
   if (notes) {
     productData = notes.data;
-    console.log(productData);
   }
   return (
     <div className="data">

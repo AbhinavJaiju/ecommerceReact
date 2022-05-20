@@ -16,17 +16,6 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Container1 = styled.div`
-  margin: 10px;
-  min-width: 280px;
-  height: 300px;
-  display: flex;
-  align-items: center;
-  background-color: #f5fbfd;
-  position: relative;
-  flex-direction: row;
-`;
-
 var productData = [];
 const customerId = sessionStorage.getItem("userId");
 const auth = sessionStorage.getItem("token");

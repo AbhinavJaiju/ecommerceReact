@@ -6,7 +6,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import EditPassword from '../editPassword/EditPassword';
+import ChangePassword from '../ChangePassword/changePassword';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,7 +75,7 @@ export default function VerticalTabs() {
         <EditProfile />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <EditPassword/>
+        <ChangePassword/>
       </TabPanel>
       <TabPanel value={value} index={3}>
         Item Four

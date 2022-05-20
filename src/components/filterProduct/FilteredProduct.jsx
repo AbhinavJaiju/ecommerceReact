@@ -75,7 +75,6 @@ const Icon = styled.div`
 `;
 const imgPath = "../../assets/images/";
 
-const url = "http://localhost/ecommerce/admin/Api/getfilteredproduct.php";
 var productData = [];
 const customerId = sessionStorage.getItem("userId");
 const auth = sessionStorage.getItem("token");

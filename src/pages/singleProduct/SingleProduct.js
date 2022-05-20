@@ -4,7 +4,6 @@ import Footer from "../../components/footer/Footer";
 import Navbar from "../../components/navbar/Navbar";
 import Newsletter from "../../components/newsletter/Newsletter";
 import "./SingleProduct.css";
-import jean from "../../assets/images/avi.jpg";
 import Button from "@mui/material/Button";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";

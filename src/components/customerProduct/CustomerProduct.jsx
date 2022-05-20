@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { useEffect } from "react";
-import axios from "axios";
+
 import { useState } from "react";
 
 const Container = styled.div`
@@ -73,7 +73,7 @@ const Icon = styled.div`
 `;
 const imgPath = "../../assets/images/";
 
-const url = "http://localhost/ecommerce/admin/Api/getfilteredproduct.php";
+
 var productData = [];
 
 const FilteredProduct = (props) => {
@@ -127,7 +127,6 @@ const FilteredProduct = (props) => {
               </Icon>
             </Info>
             <h3 className="product-name">{items.name}</h3>
-            <h4 className></h4>
             
           </Container1>
           

@@ -73,13 +73,10 @@ const Icon = styled.div`
   }
 `;
 
-const imgPath = "../../assets/images/";
-const url = "http://localhost/ecommerce/admin/Api/getproduct.php";
+
 const customerId = sessionStorage.getItem("userId");
 var productData = [];
-const bodyParameters = {
-  key: "value",
-};
+
 const auth = sessionStorage.getItem("token");
 const config = {
   headers: {

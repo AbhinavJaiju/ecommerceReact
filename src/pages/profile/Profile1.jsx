@@ -4,7 +4,6 @@ import Announcement from "../../components/announcement/Announcement";
 import SideTabs from "../../components/sideTabls/SideTabs";
 import Newsletter from "../../components/newsletter/Newsletter";
 import UserDetail from "../../components/userdetail/UserDetail";
-import { withRouter} from "react-router-dom";
 
 import "./Profile.css";
 

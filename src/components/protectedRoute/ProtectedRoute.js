@@ -1,6 +1,5 @@
 import React from "react";
 
-import { ReactDOM } from "react";
 
 import { Navigate, Outlet } from "react-router-dom";
 
