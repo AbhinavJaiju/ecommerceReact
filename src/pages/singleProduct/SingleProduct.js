@@ -29,7 +29,7 @@ const SingleProduct = () => {
   useEffect(() => {
     var config = {
       method: "post",
-      url: "http://localhost/ecommerce/admin/Api/singleproductdetail.php",
+      url: "http://localhost/ecommerce/admin/Api/singleProduct.php",
       headers: {
         Authorization: `Bearer ${auth}`,
         "Content-Type": "application/json",

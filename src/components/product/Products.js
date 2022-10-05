@@ -9,6 +9,7 @@ import { useState } from "react";
 import "./Product.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import React from "react";
 
 const Container = styled.div`
   padding: 40px;
@@ -148,6 +149,7 @@ const Products = () => {
     event.preventDefault();
     navigate('/pages/singleProduct/SingleProduct');
     sessionStorage.setItem('productId',parseInt(value))
+    console.log(value);
   }
 
   if (notes) {
@@ -161,7 +163,7 @@ const Products = () => {
          
             <Container1 key={items.id}>
               <Circle />
-              <img src={items.image} alt={items.image} className="productImg" />
+              <img src={`../../assets/shop/${items.image}`} alt={items.image} className="productImg" />
               <Info>
                 <Icon>
                   <ShoppingCartIcon />

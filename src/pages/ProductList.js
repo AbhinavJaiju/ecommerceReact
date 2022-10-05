@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Navbar from "../components/navbar/Navbar";
 import Announcement from "../components/announcement/Announcement";
 import FilteredProduct from "../components/filterProduct/FilteredProduct";
-
+import React from "react";
 import Footer from "../components/footer/Footer";
 import Newsletter from "../components/newsletter/Newsletter";
 import { css } from "styled-components";

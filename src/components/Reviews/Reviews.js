@@ -81,7 +81,7 @@ const Reviews = () => {
                 <ListItemIcon>
                   
                   <CalendarTodayIcon />
-                  {items.createdDate}
+                  {items.date}
                 </ListItemIcon>
               </ListItem>
 

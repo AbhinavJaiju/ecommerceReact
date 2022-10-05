@@ -4,7 +4,7 @@ import Login from "./components/auth/Login";
 import Profile1 from "./pages/profile/Profile1";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import React from "react";
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import SingleProduct from "./pages/singleProduct/SingleProduct";

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { categories } from "../../data";
-
+import React from "react";
 import CategoryItem from "./CategoryItem";
 
 const Container = styled.div`

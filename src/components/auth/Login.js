@@ -66,16 +66,16 @@ export default function SignInSide() {
       console.log(JSON.stringify(values, null, 2));
       axios
         .post(
-          "http://localhost/ecommerce/admin/Api/loginauth.php",
+          "http://localhost/ecommerce/admin/Api/logins.php",
           JSON.stringify(values)
         )
         .then(function (response) {
-          console.log(response.data);
+          console.log(response.data.data.userId);
           console.warn(response.status);
           if (response.data.jwt) {
             sessionStorage.setItem("token", response.data.jwt);
-            sessionStorage.setItem("userId", response.data.data.id);
-            sessionStorage.setItem("userName", response.data.data.Name);
+            sessionStorage.setItem("userId", response.data.data.userId);
+            sessionStorage.setItem("userName", response.data.data.userName);
             sessionStorage.setItem("isAuthenticated", "true");
             navigate("/pages/Home");
           } else {
